@@ -8,6 +8,9 @@ print("请将所有待修改图片以*.jpg 扩展名格式放在 input_images �
 input_image_folder = "./input_images"
 extension = "*.jpg"
 input_images = [file for file in os.listdir(input_image_folder) if fnmatch.fnmatch(file, extension)]
+if len(input_images) == 0:
+    print(f"没有找到jpg文件在{input_image_folder}")
+    exit()
 
 year = input("<请用英文输入法输入年，例如 2023>: ")
 if not (year.isdigit() and len(year) == 4):
